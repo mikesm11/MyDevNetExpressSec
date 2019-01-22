@@ -1,3 +1,42 @@
 If you change even one character in this file... Git will know.
 
 Commit
+def multi(x, *args, **xargs):
+  print("{}".format{args})
+  print("xargs: {}".format(xargs))
+
+multi(x, 1, 2, 3)
+#v tomto případě záleží na pořadí
+
+multi(x, 1, 2, 3, a="test", b="test")
+#v tomto případě se pomocí xargs vyplní slovník
+
+#můžeme tím tak definovat pouze pár metod a používat je s ruzným počtem proměnné
+
+#-----------------------------
+#Globální a lokální proměnné:
+a = "1"
+print(a)
+1
+
+def prt():
+    print (a)
+prt()
+1
+
+def prt():
+    a = "test"
+    print(a)
+prt()
+test
+print(a)
+1
+
+def prt():
+    global a
+    a = "test"
+    print(a)
+prt()
+test
+print(a)
+test
