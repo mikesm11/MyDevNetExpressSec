@@ -37,18 +37,18 @@ except:
     pass
 
 #Mission TODO1: Please add your SPARK_ACCESS_TOKEN and SPARK_ROOM_ID here
-SPARK_ACCESS_TOKEN = ""
-SPARK_ROOM_ID=""
+SPARK_ACCESS_TOKEN = "M2UyNDEzMWEtNDZhNS00NDliLWEwZWYtNjQzNzkyY2U0ZGM3YmI4MTkyOTQtMDFm_PF84_e8277c1b-c196-45c3-99f8-5c9062d55cbe"
+SPARK_ROOM_ID="Y2lzY29zcGFyazovL3VzL1JPT00vYjNkYWE5MjAtMDJlYy0xMWU5LThiMjUtNDU0OGUxYjcyNjFi"
 
 spark = ciscosparkapi.CiscoSparkAPI(SPARK_ACCESS_TOKEN)
 # Mission TODO2: Insert the API key
-APIkey = ""
+APIkey = "d3492d5a-b66e-4c26-8d5b-8d1e9de52970"
 
 # Mission TODO3: Insert the proper URL
+#investigateUrl = "https://investigate.api.umbrella.com/domains/categorization/"
 investigateUrl = "https://investigate.api.umbrella.com/domains/categorization/"
-
 # Mission TODO3: What is the domain that will be checked?
-domain = "hjhqmbxyinislkkt.1j9r76.top"
+domain = "7tno4hib47vlep5o.tor2web.fi"
 
 # time for timestamp of verdict domain
 time = datetime.now().isoformat()
@@ -61,25 +61,28 @@ headers = {
 # assemble the URI, show labels give readable output
 getUrl = investigateUrl + domain + "?showLabels"
 print(getUrl)
+
 # do GET request for the domain status and category
 req = requests.get(getUrl, headers=headers)
-
+print(req.status_code)
 # error handling if true then the request was HTTP 200, so successful
 if(req.status_code == 200):
-    # retrieve status for domain
+    # retrieve status for
     output = req.json()
     domainOutput = output[domain]
+    #print(domainOutput)
     # Mission TODO4: Parse the proper element in the response json
     domainStatus = domainOutput["status"]
+    #print(domainStatus)
     #walk through different options of status
-if(domainStatus == -1):
-    print("SUCCESS: The domain %(domain)s is found MALICIOUS at %(time)s" % {'domain': domain, 'time': time})
-    message = spark.messages.create(SPARK_ROOM_ID,
-    text='MISSION: 0day Umbrella-Investigate - I have completed the Umbrella Investigate mission!')
-    print(message)
-elif(domainStatus == 1):
-    print("SUCCESS: The domain %(domain)s is found CLEAN at %(time)s" % {'domain': domain, 'time': time})
-elif(domainStatus==0):
-    print("SUCCESS: The domain %(domain)s is found UNDEFINED / RISKY at %(time)s" % {'domain': domain, 'time': time})
-else:
-    print("An error has ocurred with the following code %(error)s, please consult the following link: https://docs.umbrella.com/investigate-api/" % {'error': req.status_code})
+    if(domainStatus == -1):
+        print("SUCCESS: The domain %(domain)s is found MALICIOUS at %(time)s" % {'domain': domain, 'time': time})
+        message = spark.messages.create(SPARK_ROOM_ID,
+        text='MISSION: 0day Umbrella-Investigate - I have completed the Umbrella Investigate mission!')
+        print(message)
+    elif(domainStatus == 1):
+        print("SUCCESS: The domain %(domain)s is found CLEAN at %(time)s" % {'domain': domain, 'time': time})
+    elif(domainStatus==0):
+        print("SUCCESS: The domain %(domain)s is found UNDEFINED / RISKY at %(time)s" % {'domain': domain, 'time': time})
+    else:
+        print("An error has ocurred with the following code %(error)s, please consult the following link: https://docs.umbrella.com/investigate-api/" % {'error': req.status_code})

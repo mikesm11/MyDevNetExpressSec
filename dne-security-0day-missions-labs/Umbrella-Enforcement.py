@@ -3,7 +3,7 @@
 """0day Workflow Mission - edit this file
 This is your starting point for the 0day workflow  Mission.
 Edit this file to
- - 
+ -
 There are a few places to edit (search for MISSION comments)
 
 Script Dependencies:
@@ -38,8 +38,8 @@ except:
     pass
 
 #Mission TODO1: Please add your SPARK_ACCESS_TOKEN and SPARK_ROOM_ID here
-SPARK_ACCESS_TOKEN = ""
-SPARK_ROOM_ID = ""
+SPARK_ACCESS_TOKEN = "M2UyNDEzMWEtNDZhNS00NDliLWEwZWYtNjQzNzkyY2U0ZGM3YmI4MTkyOTQtMDFm_PF84_e8277c1b-c196-45c3-99f8-5c9062d55cbe"
+SPARK_ROOM_ID="Y2lzY29zcGFyazovL3VzL1JPT00vYjNkYWE5MjAtMDJlYy0xMWU5LThiMjUtNDU0OGUxYjcyNjFi"
 
 spark = ciscosparkapi.CiscoSparkAPI(SPARK_ACCESS_TOKEN)
 # import necessary libraries / modules
@@ -48,16 +48,16 @@ from datetime import datetime
 import json
 
 #Mission TODO2: copy paste API key from previous section within the quotes
-custkey = ""
+custkey = "677b2b44-c9c9-463d-ab45-30f383cf4be7"
 
 # URL needed to do POST requests
 eventurl = "https://s-platform.api.opendns.com/1.0/events"
 # time for AlertTime and EventTime when domains are added to Umbrella
 
-time = datetime.now().isoformat() 
+time = datetime.now().isoformat()
 
 # domain that will be uploaded
-domain = "hjhqmbxyinislkkt.1j9r76.top"
+domain = "7tno4hib47vlep5o.tor2web.fi"
 
 # URL needed for POST request
 UrlPost = eventurl+'?customerKey='+custkey
@@ -76,7 +76,7 @@ data = {
 
 # POST REQUEST: post request ensembly
 req = requests.post(UrlPost, data=json.dumps(data), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
-# error handling if true then the request was HTTP 202, so successful 
+# error handling if true then the request was HTTP 202, so successful
 if(req.status_code == 202):
     print("SUCCESS: domain (%(domain)s) was accepted, HTTP response: 202, timestamp: %(time)s" % {'domain': domain, 'time': time})
     message = spark.messages.create(SPARK_ROOM_ID,text='MISSION: 0day Umbrella-Enforcement - I have completed the first mission!')
