@@ -49,12 +49,13 @@ def get(url):
         return "Error: {}".format(e)
 
 #main code TODO: ENTER YOU CLIENT ID AND API KEY HERE
-client_id = ""
-api_key = ""
+client_id = "5aa50841e077c77bbfea"
+api_key = "58fc5e41-a2f4-4fd5-ad9f-4797a521a284"
 
 #TODO: Enter the URL
-event_id_url = "https://"
+event_id_url = "https://{}:{}@amp.dcloud.cisco.com/v1/event_types".format(client_id,api_key)
 
 event_ids= get(event_id_url)
+event_ids2=json.dumps(event_ids,sort_keys=True,indent=4, separators=(',', ': '))
 
-print(event_ids)
+print(event_ids2)
