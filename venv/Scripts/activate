@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\mikeska\Dokumenty\Networksys\Cisco Devnet Express Security\dne-security-code\venv"
+VIRTUAL_ENV="C:\Users\mikeska\Documents\Networksys\Cisco Devnet Express Security\MyDevNetExpressSec\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
