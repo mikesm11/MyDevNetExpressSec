@@ -10,11 +10,11 @@ FDM_PASSWORD = "C1sco12345"
 FDM_HOST = "198.18.133.8"
 FDM_PORT = "443"
 
-   
+
 def fdm_login(host=FDM_HOST,username=FDM_USER,password=FDM_PASSWORD):
     '''
-    This is the normal login which will give you a ~30 minute session with no refresh.  
-    Should be fine for short lived work.  
+    This is the normal login which will give you a ~30 minute session with no refresh.
+    Should be fine for short lived work.
     Do not use for sessions that need to last longer than 30 minutes.
     '''
     headers = {
@@ -23,7 +23,7 @@ def fdm_login(host=FDM_HOST,username=FDM_USER,password=FDM_PASSWORD):
         "Authorization":"Bearer"
     }
     payload = {"grant_type": "password", "username": username, "password": password}
-    
+
     request = requests.post("https://{}:{}/api/fdm/v1/fdm/token".format(host, FDM_PORT),
                           json=payload, verify=False, headers=headers)
     if request.status_code == 400:
@@ -61,10 +61,10 @@ def fdm_create_network(host,token):
     }
 
     payload = {
-        "name":"PUT_NAME_HERE",
+        "name":"Miki",
         "description":"DevNet Security",
         "subType":"HOST",
-        "value":"5.5.5.5",
+        "value":"96.96.96.96",
         "type":"networkobject"
     }
 

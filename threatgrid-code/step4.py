@@ -35,15 +35,15 @@ try:
 except:
     pass
 #TODO: Enter the API Key provided by DNE instructor or use your own threatgrid api key
-api_key = ''
+api_key = '516s9ltift83a61kdeu37k4ri2'
 
 #TODO: Enter from the example given in the learning lab
-SHA256 = ''
+SHA256 = '3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287'
 
 #TODO: Enter the request URL, Hint please refer to the intro-threat-grid-api learning lab
-url =''.format(api_key)
+url ='https://panacea.threatgrid.com/api/v2/search/submissions?q={}&api_key={}'.format(SHA256, api_key)
 try:
-    r = requests. #TODO enter the right GET method call on requests. Please refer to other code files in this repo
+    r = requests.get(url) #TODO enter the right GET method call on requests. Please refer to other code files in this repo
     #print (r.json())
     status_code = r.status_code
     resp = r.text
@@ -52,8 +52,9 @@ try:
         resp2=json.dumps(json_resp,sort_keys=True,indent=4, separators=(',', ': '))
         print(resp2)
         #save the token into a text file
-        fh = open("resultat-step4.txt", "w")
+        fh = open("result-step4.txt", "w")
         #TODO Now enter the step to write the contents in the file..
+        fh.write(resp2)
         fh.close()
     else:
         r.raise_for_status()
