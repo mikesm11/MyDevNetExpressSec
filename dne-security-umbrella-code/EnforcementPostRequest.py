@@ -6,7 +6,7 @@ from datetime import datetime
 import json
 
 # copy paste API key from previous section within the quotes
-enforcement_api_key = "<insert-enforcement-api-key-here>"
+enforcement_api_key = "13236ef3-3a4c-45a0-b79f-bd0d3de4d675"
 
 # URL needed to do POST requests
 event_url = "https://s-platform.api.opendns.com/1.0/events"
@@ -15,7 +15,7 @@ event_url = "https://s-platform.api.opendns.com/1.0/events"
 time = datetime.now().isoformat()
 
 # domain that will be uploaded
-domain = "internetbadguys.com"
+domain = "internetbadguys2.com"
 
 # URL needed for POST request
 url_post = event_url+'?customerKey='+enforcement_api_key

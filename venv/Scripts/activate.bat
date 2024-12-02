@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\mikeska\Dokumenty\Networksys\Cisco Devnet Express Security\dne-security-code\venv"
+set "VIRTUAL_ENV=C:\Users\mikeska\Documents\Networksys\Cisco Devnet Express Security\MyDevNetExpressSec\venv"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"

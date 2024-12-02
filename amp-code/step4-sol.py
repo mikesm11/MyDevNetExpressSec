@@ -49,8 +49,8 @@ def get(url):
         return "Error: {}".format(e)
 
 #main code TODO: ENTER YOU CLIENT ID AND API KEY HERE
-client_id = ""
-api_key = ""
+client_id = "5aa50841e077c77bbfea"
+api_key = "58fc5e41-a2f4-4fd5-ad9f-4797a521a284"
 
 #TODO: Enter the URL with Filter applied for the event type and limit
 events_url = "https://{}:{}@api.amp.cisco.com/v1/events?event_type[]=1090519054&limit=10".format(client_id,api_key)

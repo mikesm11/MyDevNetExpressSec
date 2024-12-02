@@ -37,18 +37,17 @@ except:
     pass
 
 #Mission TODO1: Please add your SPARK_ACCESS_TOKEN and SPARK_ROOM_ID here
-SPARK_ACCESS_TOKEN = ""
-SPARK_ROOM_ID=""
+SPARK_ACCESS_TOKEN = "M2UyNDEzMWEtNDZhNS00NDliLWEwZWYtNjQzNzkyY2U0ZGM3YmI4MTkyOTQtMDFm_PF84_e8277c1b-c196-45c3-99f8-5c9062d55cbe"
+SPARK_ROOM_ID="Y2lzY29zcGFyazovL3VzL1JPT00vYjNkYWE5MjAtMDJlYy0xMWU5LThiMjUtNDU0OGUxYjcyNjFi"
 
 spark = ciscosparkapi.CiscoSparkAPI(SPARK_ACCESS_TOKEN)
 # Mission TODO: Insert the SHA you want to hunt using TG
 
-
-sha_256 = ""
+sha_256 = "3372c1edab46837f1e973164fa2d726c5c5e17bcb888828ccd7c4dfcc234a370"
 
 # Mission TODO: enter the api credentials for the TG API access
 
-api_key = ""
+api_key = "516s9ltift83a61kdeu37k4ri2"
 
 # intialize  threatgrid objects
 
@@ -97,9 +96,15 @@ for domain in domains["data"]["items"]:
             domain_list.append(domain["domain"])
             ip_list.append(item)
 
-message = spark.messages.create(SPARK_ROOM_ID,
-    text='MISSION: 0day ThreatGrid - I have completed the mission!')
+#message = spark.messages.create(SPARK_ROOM_ID,
+#    text='MISSION: 0day ThreatGrid - I have completed the mission!')
 #Mission TODO3: Print the domains and ip....
+fd = open("result-TG-domain.txt", "w")
+fd.write(str(domain_list))
+fd.close()
+fp = open("result-TG-ip.txt", "w")
+fp.write(str(ip_list))
+fp.close()
 print ("\nAssociated domains:\n")
 print ("\n".join(domain_list))
 print ("\n samples made outbound connections on following IPs:\n")

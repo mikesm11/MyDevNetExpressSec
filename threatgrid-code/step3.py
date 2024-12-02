@@ -35,9 +35,9 @@ try:
 except:
     pass
 #TODO: Enter the key provided by the DNE instructor or your own threatgrid api key
-api_key = ''
+api_key = '516s9ltift83a61kdeu37k4ri2'
 #TODO: Enter the resource URL
-url =''.format(api_key)
+url ='https://panacea.threatgrid.com/api/v2/iocs/feeds/domains?domain=lamp.troublerfile.bid&api_key={}'.format(api_key)
 try:
     r = requests.get(url)
     status_code = r.status_code
@@ -48,7 +48,9 @@ try:
         resp2=json.dumps(json_resp,sort_keys=True,indent=4, separators=(',', ': '))
         print(resp2)
         #TODO: Create a file save the token into a text file, Hint refer to the python example on previous page in lab
-
+        fh = open("result-step3.txt", "w")
+        fh.write(resp2)
+        fh.close
     else:
         r.raise_for_status()
         print("Error occurred in GET --> "+resp)

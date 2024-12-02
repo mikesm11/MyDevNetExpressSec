@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\Users\mikeska\Dokumenty\Networksys\Cisco Devnet Express Security\dne-security-code\venv"
+$env:VIRTUAL_ENV="C:\Users\mikeska\Documents\Networksys\Cisco Devnet Express Security\MyDevNetExpressSec\venv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

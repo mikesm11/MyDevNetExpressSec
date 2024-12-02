@@ -38,13 +38,13 @@ except:
     pass
 import sys
 #Mission TODO1: Please add your SPARK_ACCESS_TOKEN and SPARK_ROOM_ID here
-SPARK_ACCESS_TOKEN = ""
-SPARK_ROOM_ID=""
+SPARK_ACCESS_TOKEN = "M2UyNDEzMWEtNDZhNS00NDliLWEwZWYtNjQzNzkyY2U0ZGM3YmI4MTkyOTQtMDFm_PF84_e8277c1b-c196-45c3-99f8-5c9062d55cbe"
+SPARK_ROOM_ID="Y2lzY29zcGFyazovL3VzL1JPT00vYjNkYWE5MjAtMDJlYy0xMWU5LThiMjUtNDU0OGUxYjcyNjFi"
 spark = ciscosparkapi.CiscoSparkAPI(SPARK_ACCESS_TOKEN)
 
 def getAMP(url):
     try:
-        response = requests.get(url)
+        response = requests.get(url, verify=False)
         # Consider any status other than 2xx an error
         if not response.status_code // 100 == 2:
             return "Error: Unexpected response {}".format(response)
@@ -57,17 +57,20 @@ def getAMP(url):
         return "Error: {}".format(e)
 
 #Mission TODO2:  ENTER YOU CLIENT ID AND AMP API KEY HERE
-client_id = ""
-api_key = ""
+client_id = "5aa50841e077c77bbfea"
+api_key = "58fc5e41-a2f4-4fd5-ad9f-4797a521a284"
 #Mission TODO: Enter the standard AMP event id for type of event for Malware... it is 1107296272
-event_id = ""
+event_id = 1107296272
 #Mission TODO3: Create the AMP URL
-events_url = "https://{}:{}@api.amp.cisco.com/v1/events".format(client_id,api_key)
+events_url = "https://{}:{}@amp.dcloud.cisco.com/v1/events".format(client_id,api_key)
+#events_url = "https://{}:{}@api.amp.cisco.com/v1/events".format(client_id,api_key)
+print("Ok")
 events1 = getAMP(events_url)
 sha_list= {}
 #print (json.dumps(events1, indent=4, sort_keys=True))
+print(events1)
 for events1 in events1["data"]:
-    if events1["event_type_id"] == 1107296272:
+    if events1["event_type_id"] == event_id:
         sha_list[events1["computer"]["hostname"]] = events1["file"]["identity"]
     else:
         continue
@@ -77,6 +80,9 @@ if sha_list == {}:
     pprint("Mission--- not Complete... !!!!")
 else:
     pprint(sha_list)
+    fh = open("result-AMP.txt", "w")
+    fh.write(str(sha_list))
+    fh.close()
     message = spark.messages.create(SPARK_ROOM_ID,
     text='MISSION: 0day AMP-SHA-LIST-Creation - I have completed the AMP mission!')
     print(message)

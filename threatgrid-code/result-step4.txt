@@ -1,0 +1,161 @@
+{
+    "api_version": 2,
+    "data": {
+        "current_item_count": 1,
+        "index": 0,
+        "items": [
+            {
+                "item": {
+                    "analysis": {
+                        "behaviors": [
+                            {
+                                "name": "files-deleted-used-batch",
+                                "threat": 25,
+                                "title": "Sample Used A Temporary Batch File"
+                            },
+                            {
+                                "name": "dns-dynamic-domain",
+                                "threat": 30,
+                                "title": "Dynamic DNS Domain Detected"
+                            },
+                            {
+                                "name": "memory-execute-readwrite",
+                                "threat": 25,
+                                "title": "Potential Code Injection Detected"
+                            },
+                            {
+                                "name": "network-communications-tor",
+                                "threat": 100,
+                                "title": "Potential TOR Connection"
+                            },
+                            {
+                                "name": "network-fast-flux-nameserver",
+                                "threat": 17,
+                                "title": "Possible Double Flux Nameserver Detected [Beta]"
+                            },
+                            {
+                                "name": "dns-query-nxdomain",
+                                "threat": 18,
+                                "title": "DNS Query Returned Non-Existent Domain"
+                            },
+                            {
+                                "name": "network-dns-category-proxy",
+                                "threat": 81,
+                                "title": "Cisco Umbrella Flagged Domain As A Proxy Or Anonymizer"
+                            },
+                            {
+                                "name": "pe-resource-lang-russian",
+                                "threat": 15,
+                                "title": "PE Resource Indicates Russian Origin"
+                            },
+                            {
+                                "name": "modified-file-in-user-dir",
+                                "threat": 56,
+                                "title": "Process Modified File in a User Directory"
+                            },
+                            {
+                                "name": "windows-util-nslookup",
+                                "threat": 18,
+                                "title": "Process Queries Domain Using NsLookup"
+                            },
+                            {
+                                "name": "cmd-exe-file-execution",
+                                "threat": 40,
+                                "title": "Command Exe File Execution Detected"
+                            },
+                            {
+                                "name": "hook-installed",
+                                "threat": 14,
+                                "title": "Hook Procedure Detected in Executable"
+                            },
+                            {
+                                "name": "pe-invalid-checksum",
+                                "threat": 25,
+                                "title": "PE Checksum is Invalid"
+                            },
+                            {
+                                "name": "pe-uses-armadillo",
+                                "threat": 9,
+                                "title": "Executable Uses Armadillo"
+                            }
+                        ],
+                        "metadata": {
+                            "analyzed_file": {
+                                "filename": "FlashPlayer.exe",
+                                "magic": ", created: Thu Jan  1 00:01:04 1970",
+                                "md5": "f98e424816c6ef574b867ff17b7bfdc2",
+                                "sha1": "1cc8345efc8d3ef5d15cc97c38354de8b76f5137",
+                                "sha256": "3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287",
+                                "type": "exe"
+                            },
+                            "general_details": {
+                                "report_created": "2018-08-03T18:38:08Z",
+                                "sandbox_id": "mtv-work-043",
+                                "sandbox_version": "pilot-d"
+                            },
+                            "malware_desc": [
+                                {
+                                    "filename": "FlashPlayer.exe",
+                                    "magic": ", created: Thu Jan  1 00:01:04 1970",
+                                    "md5": "f98e424816c6ef574b867ff17b7bfdc2",
+                                    "sha1": "1cc8345efc8d3ef5d15cc97c38354de8b76f5137",
+                                    "sha256": "3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287",
+                                    "size": 139526,
+                                    "type": "exe"
+                                }
+                            ],
+                            "sandcastle_env": {
+                                "analysis_end": "2018-08-03T18:38:07Z",
+                                "analysis_start": "2018-08-03T18:31:22Z",
+                                "controlsubject": "win7-x64-intel-2018.04.01",
+                                "current_os": "7601.18798.amd64fre.win7sp1_gdr.150316-1654",
+                                "display_name": "Windows 7 64-bit",
+                                "run_time": 300,
+                                "sample_executed": 1533321130,
+                                "sandcastle": "3.5.10.14480.feb396698-1",
+                                "vm": "win7-x64",
+                                "vm_id": "4d7e26cb90b2a8d51176096d221d3bd1"
+                            },
+                            "submitted_file": {
+                                "filename": "FlashPlayer.exe",
+                                "magic": ", created: Thu Jan  1 00:01:04 1970",
+                                "md5": "f98e424816c6ef574b867ff17b7bfdc2",
+                                "sha1": "1cc8345efc8d3ef5d15cc97c38354de8b76f5137",
+                                "sha256": "3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287",
+                                "type": "exe"
+                            }
+                        },
+                        "threat_score": 100
+                    },
+                    "filename": "FlashPlayer.exe",
+                    "md5": "f98e424816c6ef574b867ff17b7bfdc2",
+                    "properties": {
+                        "metadata": null
+                    },
+                    "sample": "4d7e26cb90b2a8d51176096d221d3bd1",
+                    "sha1": "1cc8345efc8d3ef5d15cc97c38354de8b76f5137",
+                    "sha256": "3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287",
+                    "state": "succ",
+                    "status": "job_done",
+                    "submitted_at": "2018-08-03T18:31:21Z",
+                    "tags": [],
+                    "vm_runtime": 300
+                },
+                "matches": {
+                    "analysis.artifacts.sha256": [
+                        "3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287"
+                    ],
+                    "sha256": [
+                        "3b0fa8068f11dc9abf3a4017920ec16303f99999e7276678f19c6b4eecf65287"
+                    ]
+                },
+                "score": 20.901876
+            }
+        ],
+        "items_per_page": 100,
+        "timed_out": false,
+        "took": 680,
+        "total": 1
+    },
+    "id": 7430913
+}
